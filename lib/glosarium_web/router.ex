@@ -20,7 +20,10 @@ defmodule GlosariumWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", GlosariumWeb do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", GlosariumWeb do
+    pipe_through :api
+
+    get "/users", UserController, :index
+    get "/user/:id", UserController, :show
+  end
 end
